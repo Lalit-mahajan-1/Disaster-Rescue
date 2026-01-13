@@ -34,3 +34,17 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Python / ML Backend
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+*.spec
+.pytest_cache/
+.coverage
+htmlcov/
+

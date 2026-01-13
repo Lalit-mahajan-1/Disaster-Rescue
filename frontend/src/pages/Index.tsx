@@ -6,6 +6,7 @@ import { DisasterMap } from '@/components/DisasterMap';
 import { DisasterStatsComponent } from '@/components/DisasterStats';
 import { DisasterEventLog } from '@/components/DisasterEventLog';
 import { EarthGlobe } from '@/components/EarthGlobe';
+import { DisasterSuggestions } from '@/components/DisasterSuggestions';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -276,6 +277,10 @@ const Index = () => {
                     <ScrollText className="w-4 h-4 mr-1" />
                     Event Log
                   </TabsTrigger>
+                  <TabsTrigger value="suggestions">
+                    <Shield className="w-4 h-4 mr-1" />
+                    Suggestions
+                  </TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="map" className="space-y-6">
@@ -322,6 +327,15 @@ const Index = () => {
                     disasters={analysisResult.disasters}
                     locationName={locationName}
                   />
+                </TabsContent>
+
+                <TabsContent value="suggestions">
+                   <div className="h-[600px]">
+                      <DisasterSuggestions 
+                        location={locationName}
+                        disasterType={analysisResult.stats[0]?.type || 'general'}
+                      />
+                   </div>
                 </TabsContent>
               </Tabs>
             </motion.div>
